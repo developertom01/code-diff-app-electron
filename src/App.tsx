@@ -2,6 +2,7 @@ import React from 'react'
 // import ReactDiffViewer from 'react-diff-viewer'
 import * as diff from 'diff'
 import DiffViewer from './DiffViewer'
+
 const getFileContents = async (
   fileList?: FileList,
 ): Promise<[string, string]> => {

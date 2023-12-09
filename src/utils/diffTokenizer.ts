@@ -13,7 +13,6 @@ export const tokenizeHunks = (hunks: HunkData[], language: string, oldSource: st
         language,
         refractor: refactor,
         oldSource
-
     };
 
     try {

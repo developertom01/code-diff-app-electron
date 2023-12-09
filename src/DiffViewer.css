@@ -1,5 +1,5 @@
 :root {
-    --diff-background-color: initial;
+    --diff-background-color: 1;
     --diff-text-color: initial;
     --diff-font-family: Consolas, Courier, monospace;
     --diff-selection-background-color: #b3d7ff;
