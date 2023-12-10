@@ -1,4 +1,3 @@
-import React from 'react'
 import DiffViewer from './DiffViewer'
 import { useFileDropHandler } from './hooks'
 
