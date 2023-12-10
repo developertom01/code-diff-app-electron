@@ -1,7 +1,7 @@
 
 const DEFAULT_TEXT_EXTENSION = "txt"
-const EXTENSION_SUPPORTED = ["cpp","js","cjs","ts","php","dart","go","json","xml", "html", "txt"] as const
-const LANGUAGES_SUPPORTED = ["cpp","javascript","typescript","php","dart","go","json","xml", "html","txt"] as const
+const EXTENSION_SUPPORTED = ["cpp","js","cjs","ts","php","dart","go","json","xml", "html", "txt", "java"] as const
+const LANGUAGES_SUPPORTED = ["cpp","javascript","typescript","php","dart","go","json","xml", "html","txt","java"] as const
 
 type SUPPORTED_EXTENSION_TYPE =  typeof EXTENSION_SUPPORTED[number]
 export type SUPPORTED_LANGUAGES_TYPE =  typeof LANGUAGES_SUPPORTED[number]
@@ -24,6 +24,7 @@ const fileExtensionLanguageMap =  new Map<SUPPORTED_EXTENSION_TYPE,SUPPORTED_LAN
 .set("xml","xml")
 .set("html","html")
 .set("txt","txt")
+.set("java","java")
 
 export const getLanguageFromFilename = (filename: string):SUPPORTED_LANGUAGES_TYPE | undefined => {
     const extension = getExtensionFromFileName(filename)

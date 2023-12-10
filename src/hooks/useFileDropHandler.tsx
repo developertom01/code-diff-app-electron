@@ -12,6 +12,7 @@ export const useFileDropHandler = () => {
   const [fileLanguage, setFileLanguage] = React.useState<
     SUPPORTED_LANGUAGES_TYPE
   >('txt')
+  
   document.addEventListener('drop', async (event) => {
     event.preventDefault()
     event.stopPropagation()
