@@ -1,7 +1,7 @@
 import { app, BrowserWindow } from 'electron'
 import  path from 'path'
 import { config } from './config'
-import { createEventHandlers } from './ipcHandlers'
+import { createEventHandlers } from './ipc'
 
 // The built directory structure
 //
@@ -32,7 +32,7 @@ function createWindow() {
   win.webContents.on('did-finish-load', () => {
     win?.webContents.send('main-process-message', (new Date).toLocaleString())
   })
-  createEventHandlers(win)
+  createEventHandlers()
 
   if (VITE_DEV_SERVER_URL) {
     win.loadURL(VITE_DEV_SERVER_URL)
