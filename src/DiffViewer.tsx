@@ -5,14 +5,15 @@ import 'prismjs/themes/prism.css'
 import 'prism-color-variables/variables.css'
 import 'prism-color-variables/themes/duracula.css'
 import './DiffViewer.css'
-import { tokenizeHunks } from './utils'
+import { SUPPORTED_LANGUAGES_TYPE, tokenizeHunks } from './utils'
 
 type Props = {
   diffText: string
   oldSource: string
+  language: SUPPORTED_LANGUAGES_TYPE
 }
 
-const DiffViewer: React.FC<Props> = ({ diffText, oldSource }) => {
+const DiffViewer: React.FC<Props> = ({ diffText, oldSource, language }) => {
   const files = parseDiff(diffText)
   const renderToken: RenderToken = (token, defaultRender, i) => {
     switch (token.type) {
@@ -31,7 +32,10 @@ const DiffViewer: React.FC<Props> = ({ diffText, oldSource }) => {
     }
   }
   const hunks = files.flatMap((item) => item.hunks)
-  const tokens = React.useMemo(() => tokenizeHunks(hunks, 'js', oldSource), [])
+  const tokens = React.useMemo(
+    () => tokenizeHunks(hunks, language, oldSource),
+    [oldSource, hunks, language],
+  )
 
   return (
     <Diff
